@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>catering software</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+	<div class="container">
+		<div class="jumborton">
+
+			<div class="well row">
+				<h5 class="text-info col-lg-11 col-md-11 col-sm-10 col-xs-10">
+					Catering Software <small class="text-success"
+						th:text="${user_name}"></small>
+				</h5>
+				<div class="lg-1 col-md-1 col-sm-2 col-xs-2">
+					<button class="btn btn-sm btn-warning pull-right">Log Out</button>
+				</div>
+			</div>
+
+			<nav class="navbar">
+				<ul class="nav nav-pills">
+					<li><a data-toggle="tab" href="#tables">Tables</a></li>
+					<li><a data-toggle="tab" href="#database">Database</a></li>
+					<li class="dropdown"><a class="dropdown-toggle"
+						data-toggle="dropdown">Manager Functions<span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a data-toggle="tab" href="#user_menu">User</a></li>
+						</ul></li>
+				</ul>
+			</nav>
+
+			<div class="tab-content">
+
+				<div class="tab-pane fade in active">
+					<p class="text-warning" th:text="${errMsg}"></p>
+				</div>
+
+				<div id="database" class="tab-pane fade">
+					<table class="table table-bordered table-strinped table-hover">
+						<caption class="text-info">Companies</caption>
+						<tr class="row">
+							<th class="col-lg-4 col-md-4 col-sm-4 col-xs-4">ID</th>
+							<th class="col-lg-4 col-md-4 col-sm-4 col-xs-4">NAME</th>
+							<th class="col-lg-4 col-md-4 col-sm-4 col-xs-4">PASSWORD</th>
+						</tr>
+						<div th:each="company : ${companies}">
+							<tr class="row">
+								<td class="col-lg-4 col-md-4 col-sm-4 col-xs-4"
+									th:text="${company.id}"></td>
+								<td class="col-lg-4 col-md-4 col-sm-4 col-xs-4"
+									th:text="${company.name}"></td>
+								<td class="col-lg-4 col-md-4 col-sm-4 col-xs-4"
+									th:text="${company.password}"></td>
+							</tr>
+						</div>
+					</table>
+
+					<table class="table table-bordered table-strinped table-hover">
+						<caption class="text-info">Users</caption>
+						<tr class="row">
+							<th class="col-lg-4 col-md-4 col-sm-4 col-xs-4">ID</th>
+							<th class="col-lg-4 col-md-4 col-sm-4 col-xs-4">NAME</th>
+							<th class="col-lg-4 col-md-4 col-sm-4 col-xs-4">COMPANY</th>
+						</tr>
+						<div th:each="user : ${users}">
+							<tr class="row">
+								<td class="col-lg-4 col-md-4 col-sm-4 col-xs-4"
+									th:text="${user.id}"></td>
+								<td class="col-lg-4 col-md-4 col-sm-4 col-xs-4"
+									th:text="${user.name}"></td>
+								<td class="col-lg-4 col-md-4 col-sm-4 col-xs-4"
+									th:text="${user.company.name}"></td>
+							</tr>
+						</div>
+					</table>
+				</div>
+
+				<div id="user_menu" class="tab-pane fade">
+
+					<nav class="navbar">
+						<ul class="nav nav-pills">
+							<li><a data-toggle="tab" href="#insert_user">Insert User</a></li>
+							<li><a data-toggle="tab" href="#update_user">Update User</a></li>
+							<li><a data-toggle="tab" href="#delete_user">Delete User</a></li>
+						</ul>
+					</nav>
+
+					<div class="tab-content">
+
+						<div id="insert_user" class="tab-pane fade">
+							<form action="user_insert" method="POST" class="well">
+								<input type="text" name="user_name" placeholder="user name"><br>
+								<br> <input type="password" name="password"
+									placeholder="password"><br> <br> <input
+									type="submit" value="Insert" class="btn btn-sm bg-primary">
+							</form>
+						</div>
+
+						<div id="update_user" class="tab-pane fade">
+							<form action="user_update" method="POST" class="well">
+								<input type="text" name="old_user_name" placeholder="old user name"><br><br> 
+								<input type="password" name="old_user_password" placeholder="old password"><br><br> 
+								<input type="text" name="new_user_name" placeholder="new user name"><br><br> 
+								<input type="password" name="new_user_password" placeholder="new password"><br><br> 
+								<input type="submit" value="Update" class="btn btn-sm bg-primary">
+							</form>
+						</div>
+
+						<div id="delete_user" class="tab-pane fade">
+							<form action="user_delete" method="POST" class="well">
+								<input type="text" name="user_name" placeholder="user name"><br>
+								<br> <input type="submit" value="Delete"
+									class="btn btn-sm bg-primary">
+							</form>
+						</div>
+
+					</div>
+				</div>
+
+				<div id="tables" class="tab-pane fade"></div>
+
+			</div>
+
+		</div>
+	</div>
+</body>
+</html>

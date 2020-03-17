@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>catering software</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+<div class="container">
+<div class = "jumvotron">
+<form action="company_login" method="POST" class ="well">
+  <input type="text" name="company" placeholder="company name">
+  <input type="password" name="password" placeholder="password">
+  <input type="submit" value="Submit" class="btn btn-sm bg-primary">
+</form> 
+<div class ="row">
+<h1 class= "text-info col-lg-6 col-md-6 col-sm-12 col-xs-12">Catering Software</h1>
+<img class = "img-responsive img-circle col-lg-6 col-md-6 hidden-sm hidden-xs" src="../img/index_bg.jpg" alt="index image">
+<h4 class="text-warning col-lg-12 col-md-12 col-sm-12 col-xs-12" th:text="${errMsg}">Error</h4>
+</div>
+</div>
+</div>
+</body>
+</html>

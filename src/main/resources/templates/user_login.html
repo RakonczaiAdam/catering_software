@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>catering software</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+<div class = "container">
+<div class ="jumborton">
+
+<div class="well row">
+<h5 class="text-info col-lg-11 col-md-11 col-sm-10 col-xs-10">Catering Software <small class="text-success" th:text="${company_name}"></small></h5>
+<div class ="lg-1 col-md-1 col-sm-2 col-xs-2">
+<button class ="btn btn-sm btn-warning pull-right">Log Out</button>
+</div>
+</div>
+
+<form action="user_login" method="POST">
+  <input type="text" name="user" placeholder="user name"><br><br>
+  <input type="password" name="password" placeholder="password"><br><br>
+  <input type="submit" value="Submit" class="btn btn-sm bg-primary">
+</form> 
+<p class="text-warning" th:text="${errMsg}"></p>
+
+</div>
+</div>
+</body>
+</html>
